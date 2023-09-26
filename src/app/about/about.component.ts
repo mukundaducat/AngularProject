@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  a:Number=5;
-  b:String="hello";
-  abc(){
+  first:Number = 50;
+  second:String = "this is text";
+  
+  abc()
+  {
     alert("welcome to ducat");
   }
 
