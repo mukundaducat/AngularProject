@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ContactComponent } from './contact/contact.component';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { ErrorComponent } from './error/error.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { FullComponent } from './module/layouts/full/full.component';
+import { BlankComponent } from './module/layouts/blank/blank.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
+   
     NavbarComponent,
-    ContactComponent,
-    LandingpageComponent,
-    ErrorComponent
+    
+    FullComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

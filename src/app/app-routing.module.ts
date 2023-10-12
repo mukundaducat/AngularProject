@@ -1,28 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { ErrorComponent } from './error/error.component';
+import { BlankComponent } from './module/layouts/blank/blank.component';
+import { FullComponent } from './module/layouts/full/full.component';
 
 
 const routes: Routes = [
   {
     path:'',
-    component: LandingpageComponent
-  },
-  {
-    path:'about',
-    component:AboutComponent
-  },
-  {
-    path:'contact',
-    component:ContactComponent
-  },
-  {
-    path:'**',
-    component:ErrorComponent
+    children:[
+      {
+        path:'',
+        redirectTo:'auth',
+        pathMatch:'full'
+      },
+      {
+        path:'auth',
+        component:BlankComponent,
+        loadChildren:()=> import('./module/auth/auth.module').then(m => m.AuthModule)
+      },
+      {
+        path:'dashboard',
+        component:FullComponent,
+        loadChildren: ()=> import('./module/dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+    ]
   }
+  
 ];
 
 @NgModule({
